@@ -1,1 +1,97 @@
 /* pages/home/home.wxss */
+
+.showItemBox {
+  margin: 50rpx 0;
+  display: flex;
+  justify-content: space-between;
+  height: 70rpx;
+  align-items: center;
+}
+
+.section {
+  height: 70rpx;
+  padding: 0 20rpx;
+  background: #fff;
+  border-radius: 4px;
+  line-height: 70rpx;
+}
+
+.gruop {
+  margin: 15rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gruop .text-gruop {
+  width: 80rpx;
+}
+
+.gruop .progress-gruop {
+  width: 500rpx;
+}
+
+.gruop icon {
+  width: 40rpx;
+}
+
+.pet-group {
+  margin: 50rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showPet {
+  width: 555rpx;
+  height: 555rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #d8d8d8;
+  border-radius: 4rpx;
+  font-size: 40rpx;
+  overflow: hidden;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  width: 120rpx;
+}
+
+.feed text {
+  margin-bottom: 15rpx;
+  padding: 6rpx 0;
+  text-align: center;
+  border-radius: 15rpx;
+  color: #fff;
+}
+
+.feed text:first-child {
+  background: rgb(9, 187, 7);
+}
+
+.feed text:nth-child(2) {
+  background: rgb(16, 174, 255);
+}
+
+.feed text:last-child {
+  background: rgb(247, 98, 96);
+}
+
+.animation {
+  -webkit-animation: object_one 2s infinite;
+  animation: object_one 2s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+@keyframes object_one {
+  33% {
+    transform: translate(-100px, 0);
+  }
+
+  66% {
+    transform: translate(100px, 0);
+  }
+}

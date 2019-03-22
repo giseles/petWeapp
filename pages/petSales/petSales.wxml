@@ -1,2 +1,10 @@
 <!--pages/petSales/petSales.wxml-->
-<text>pages/petSales/petSales.wxml</text>
+<view wx:if="{{petNum}}">
+  <view class="section-title">请选择丢弃的爱宠</view>
+  <radio-group class="radio-group backWhite" bindchange="radioChange">
+    <label class="radio" wx:for="{{myPet}}" wx:key="index">
+      <radio value="{{item}}" /> {{item}}
+    </label>
+  </radio-group>
+  <button class='padding30' type="warn" bindtap="handleSale">确定丢弃</button>
+</view>

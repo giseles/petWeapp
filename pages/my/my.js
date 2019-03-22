@@ -7,15 +7,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    // pets: wx.getStorageSync('myPet')||null,
-    // petNum: wx.getStorageSync('myPet').length || 0,
-    mypetNum: 3,
-    myPet: ['鼠', '牛', '虎', '兔'],
-    myPetInfo: [{ pet: '狗', age: 1, mood:1,health:10,birth:'',last:''},
-      { pet: '虎', age: 1, mood: 1, health: 10, birth: '', last: '' },
-      { pet: '猫', age: 1, mood: 1, health: 10, birth: '', last: '' },
-      { pet: '鸡', age: 1, mood: 1, health: 10, birth: '', last: '' }],
-    petAll: ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪']
+    myPet: wx.getStorageSync('myPet') || null,
+    petNum: wx.getStorageSync('myPet').length || 0,
   },
   //事件处理函数
   bindViewTap: function () {
@@ -24,11 +17,6 @@ Page({
     })
   },
   onLoad: function () {
-    if (!wx.getStorageSync('petAll')){
-      wx.setStorageSync('petAll', this.data.petAll)
-    }
-    console.log(this.data.myPet.length)
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -56,6 +44,15 @@ Page({
       })
     }
   },
+  /**
+ * 生命周期函数--监听页面显示
+ */
+  onShow: function () {
+    this.setData({
+      myPet: wx.getStorageSync('myPet') || null,
+      petNum: wx.getStorageSync('myPet').length || 0,
+    })
+  },
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -64,14 +61,19 @@ Page({
       hasUserInfo: true
     })
   },
-  navToPetShop:()=>{
+  navToPetShop: () => {
     wx.navigateTo({
       url: '/pages/petShop/petShop'
     })
   },
-  navToPetSales:()=>{
+  navToPetSales: () => {
     wx.navigateTo({
       url: '/pages/petSales/petSales'
     })
   },
+  navToHome: () => {
+    wx.switchTab({
+      url: '/pages/home/home'
+    })
+  }
 })
