@@ -1,0 +1,11 @@
+  <view class="usermotto" wx:if="{{mypetNum}}">
+    <text class="user-motto">当前您拥有的宠物：{{myPet}}</text>
+    </view>
+
+    <radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio" wx:for="{{showPetList}}" wx:key="index">
+    <radio value="{{item}}"/>
+    {{item}}
+  </label>
+</radio-group>
+ <button type="primary" bindtap="handleBuy">确定领养</button>

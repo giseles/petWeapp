@@ -1,2 +1,31 @@
 <!--pages/home/home.wxml-->
 <text>pages/home/home.wxml</text>
+  <view class="usermotto" wx:if="{{mypetNum}}">
+    <text class="user-motto">当前您拥有的宠物：{{myPet}}</text>
+<view class="section">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{myPet}}">
+    <view class="picker">
+      选择宠物：{{myPet[index]}}
+    </view>
+  </picker>
+</view>
+<text>宠物心情不好哦 注意陪伴</text>
+年龄1岁
+心情<progress percent="40" stroke-width="12" />
+健康
+<progress percent="60" color="pink" />
+<progress percent="80" active />
+
+<icon type="info_circle" size="40" />
+<icon type="info_circle" color="red" size="40" />
+<icon type="info_circle" color="rgb(16,174,255)" size="40" />
+<icon type="cancel" size="40" />
+<view>{{myPet[index]}}</view>
+<view>
+<text>喂水</text>
+<text>投食</text>
+<text>玩耍</text>
+</view>
+  </view>
+
+  <button wx:else type="primary" bindtap="navToPetShop">您还没有宠物快来领养吧</button>

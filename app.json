@@ -4,12 +4,14 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/my/my",
-    "pages/weather/weather"
+    "pages/weather/weather",
+    "pages/petShop/petShop",
+    "pages/petSales/petSales"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "魔性宠物",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
