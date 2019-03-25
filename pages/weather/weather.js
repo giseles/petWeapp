@@ -1,18 +1,45 @@
 // pages/weather/weather.js
+var bmap = require('../../libs/bmap-wx.min.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    weatherData: '',
+    show: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var BMap = new bmap.BMapWX({
+      ak: '8uNzpmeLN88cyZp7KfrPiSroCPR5vXpo'
+    });
+    var fail = (data) => {
+      console.log('fail!!!!')
+    };
+    var success = (data) => {
+      console.log('success!!!');
+      console.log(data);
+      var weatherData = data.currentWeather[0];
+      weatherData =
+        `城市：${weatherData.currentCity}
+        日期：${weatherData.date}
+        温度：${weatherData.temperature}
+        天气：${weatherData.weatherDesc}
+        风力：${weatherData.wind}
+        PM2.5：${weatherData.pm25}
+      `;
+      this.setData({
+        weatherData: weatherData
+      });
+    }
+    BMap.weather({
+      fail: fail,
+      success: success
+    });
   },
 
   /**

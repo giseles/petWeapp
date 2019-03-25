@@ -43,5 +43,10 @@
         "text": "Log"
       }
     ]
+  },
+  "permission":{
+    "scope.userLocation":{
+      "desc":"获取地址查询天气预报"
+    }
   }
 }

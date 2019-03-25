@@ -121,8 +121,9 @@ Page({
     let petInfo = {
       pet: activePet,
       age: 1,
-      mood: 80,
-      health: 80,
+      mood: 60,
+      health: 60,
+      petSize:'40rpx',
       birth: now,
       last: now - 10 * 1000
     }

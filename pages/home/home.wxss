@@ -80,15 +80,15 @@
 }
 
 .animation {
-  -webkit-animation: object_one 2s infinite;
-  animation: object_one 2s infinite;
-  /* -webkit-animation-delay: 0.2s;
-  animation-delay: 0.2s; */
+  -webkit-animation: petPlay 2s infinite;
+  animation: petPlay 2s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
   animation-iteration-count:5;
   animation-fill-mode : none
 }
 
-@keyframes object_one {
+@keyframes petPlay {
   0% {
     transform: translate(0, 0);
   }

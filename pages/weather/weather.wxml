@@ -1,2 +1,5 @@
-<!--pages/weather/weather.wxml-->
-<text>pages/weather/weather.wxml</text>
+<!--pages/weather/weather.wxml--> 
+<view class='container'>
+<text>{{weatherData}}</text>
+</view>
+

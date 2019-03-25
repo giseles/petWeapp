@@ -3,7 +3,7 @@
   <text class="showItem">当前您拥有的宠物：{{myPet}}</text>
 
   <view class="showItemBox">
-    <view>年龄{{activeInfo.age}}岁</view>
+    <view>{{activePet}}龄{{activeInfo.age}}岁</view>
     <view class="section">
       <picker bindchange="bindPickerChange" value="{{indexPicker}}" range="{{myPet}}">
         <view class="picker">
@@ -16,33 +16,32 @@
   <view class="gruop">
     <view class="text-gruop">心情</view>
     <view class="progress-gruop">
-      <progress percent="{{activeInfo.mood}}" color="#10AEFF" active/>
+      <progress percent="{{activeInfo.mood}}" color="#10AEFF"/>
     </view>
-    <icon type="info_circle" color="primary" />
+    <icon wx:if="{{activeInfo.mood>66}}" type="info_circle" color="primary" />
+    <icon wx:if="{{activeInfo.mood>33 && activeInfo.mood<=66}}" type="info_circle" color="#C9C9C9" />
+    <icon wx:if="{{activeInfo.mood<=33}}" type="info_circle" color="red" />
   </view>
   <view class="gruop">
     <view class="text-gruop">健康</view>
     <view class="progress-gruop">
-      <progress percent="{{activeInfo.health}}" color="#10AEFF" active />
+      <progress percent="{{activeInfo.health}}" color="#10AEFF"/>
     </view>
-    <icon type="info_circle" color="red"></icon>
+    <icon wx:if="{{activeInfo.health>66}}" type="info_circle" color="primary" />
+    <icon wx:if="{{activeInfo.health>33 && activeInfo.health<=66}}" type="info_circle" color="#C9C9C9" />
+    <icon wx:if="{{activeInfo.health<=33}}" type="info_circle" color="red" />
   </view>
 
-
-  <!-- <icon type="info_circle" color="rgb(16,174,255)" size="40" />
-  <icon type="info_circle" color="#C9C9C9" size="40" />
-  <icon type="info_circle" color="primary" size="40" />
-  <icon type="info_circle" color="red" size="40" />
-  <icon type="cancel"></icon> -->
   <view class='pet-group'>
-    <view class='showPet' style='font-size:{{fontSize}}'>
-      <text animation="{{animationData}}" class="{{animation}}"> {{activePet}}
+    <view class='showPet'  wx:if="{{petSize}}" style='font-size:{{petSize}}'>
+      <!-- <text animation="{{animationData}}"> {{activePet}} -->
+      <text class="{{animationClass}}"> {{activePet}}
      </text>
     </view>
     <view class='feed'>
-      <text bindtap="feedWater">喂水</text>
-      <text bindtap="feedFood">投食</text>
-      <text bindtap="feedPlay">玩耍</text>
+      <text bindtap="handleFeed" data-feed="water">喂水</text>
+      <text bindtap="handleFeed" data-feed="food">投食</text>
+      <text bindtap="handleFeed" data-feed="play">玩耍</text>
     </view>
   </view>
 
