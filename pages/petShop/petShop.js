@@ -88,7 +88,6 @@ Page({
     this.setData({
       activePet: e.detail.value
     })
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
   },
   changePetList: function() {
     let showPetList = [];

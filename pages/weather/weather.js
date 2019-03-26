@@ -22,7 +22,6 @@ Page({
     };
     var success = (data) => {
       console.log('success!!!');
-      console.log(data);
       var weatherData = data.currentWeather[0];
       weatherData =
         `城市：${weatherData.currentCity}

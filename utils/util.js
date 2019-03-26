@@ -13,7 +13,12 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+//生成从minNum到maxNum的随机数
+const randomNum = (lower, upper)=> {
+  return Math.floor(Math.random() * (upper - lower)) + lower;
+} 
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  randomNum: randomNum
 }

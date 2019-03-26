@@ -1,11 +1,11 @@
 <!--pages/home/home.wxml-->
-<view class="pageCon" wx:if="{{petNum}}">
+<view class="pageCon" wx:if="{{myPet.length}}">
   <text class="showItem">当前您拥有的宠物：{{myPet}}</text>
 
   <view class="showItemBox">
     <view>{{activePet}}龄{{activeInfo.age}}岁</view>
     <view class="section">
-      <picker bindchange="bindPickerChange" value="{{indexPicker}}" range="{{myPet}}">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{myPet}}">
         <view class="picker">
           选择宠物：{{activePet}}
         </view>
