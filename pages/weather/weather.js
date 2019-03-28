@@ -18,7 +18,7 @@ Page({
       ak: '8uNzpmeLN88cyZp7KfrPiSroCPR5vXpo'
     });
     let fail = (data) => {
-      console.log('fail!!!!')
+      console.log('fail!!!')
     };
     let success = (data) => {
       console.log('success!!');
