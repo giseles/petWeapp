@@ -1,5 +1,5 @@
 // pages/weather/weather.js
-var bmap = require('../../libs/bmap-wx.min.js');
+let bmap = require('../../libs/bmap-wx.min.js');
 Page({
 
   /**
@@ -14,15 +14,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var BMap = new bmap.BMapWX({
+    let BMap = new bmap.BMapWX({
       ak: '8uNzpmeLN88cyZp7KfrPiSroCPR5vXpo'
     });
-    var fail = (data) => {
+    let fail = (data) => {
       console.log('fail!!!!')
     };
-    var success = (data) => {
+    let success = (data) => {
       console.log('success!!!');
-      var weatherData = data.currentWeather[0];
+      let weatherData = data.currentWeather[0];
       weatherData =
         `城市：${weatherData.currentCity}
         日期：${weatherData.date}
