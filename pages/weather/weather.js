@@ -21,7 +21,7 @@ Page({
       console.log('fail!!!!')
     };
     let success = (data) => {
-      console.log('success!!!');
+      console.log('success!!');
       let weatherData = data.currentWeather[0];
       weatherData =
         `城市：${weatherData.currentCity}
