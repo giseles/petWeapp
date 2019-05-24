@@ -1,5 +1,37 @@
-<!--pages/weather/weather.wxml--> 
-<view class='container'>
-<text>{{weatherData}}</text>
+<!--pages/weather/weather.wxml-->
+<view class='containerWeaher'>
+  <image class='bcg' src='/images/background.jpg' mode='aspectFill'></image>
+  <!-- 今日天气 -->
+  <view class='main'>
+    <view class='city'>{{weatherData.currentCity}}</view>
+    <view class='desc'>{{weatherData.weatherDesc}}</view>
+    <view class='weater'>{{currentWeater}}</view>
+    <view class='date'>
+      <view>{{date}}</view>
+      <view class='temperature'>{{weatherData.temperature}}</view>
+    </view>
+  </view>
+  <!-- 天气预报 -->
+  <view class='forecast'>
+    <view wx:for="{{forecast}}" wx:key="index" class='item'>
+      <view>{{item.date}}</view>
+      <view>{{item.temperature}}</view>
+      <view>{{item.weather}}</view>
+      <view>{{item.wind}}</view>
+      <!-- <image src="{{item.dayPictureUrl}}"></image> -->
+    </view>
+  </view>
+  <!-- 生活指数 -->
+  <view class='advise'>
+    <view wx:for="{{advise}}" wx:key="index" class='item'>
+      <image class='icon' src="{{lifeimg[index]}}"></image>
+      <view class='right'>
+        <view class='top'>
+          <view>{{item.tipt}}</view>
+          <view>{{item.zs}}</view>
+        </view>
+        <view>{{item.des}}</view>
+      </view>
+    </view>
+  </view>
 </view>
-

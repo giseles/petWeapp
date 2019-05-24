@@ -42,6 +42,7 @@ form {
 
 .pageCon {
   width: 100%;
+  min-height: 100vh;
   flex-direction: column;
   display: flex;
   padding: 40rpx 30rpx 0;
@@ -53,10 +54,10 @@ form {
 .showItem {
   width: 690rpx;
   background: #fff;
-  border-radius: 4rpx;
   margin: 40rpx auto;
   padding: 30rpx;
   box-sizing: border-box;
+  border-radius: 20rpx;
 }
 
 .section-title {
@@ -85,4 +86,33 @@ form {
 
 .backWhite .radio:last-child {
   border-bottom: none;
+}
+.bgPurple{
+  background: #d482d6
+}
+.bgBlue{
+  background: #6cbef9
+}
+.bgGreen{
+    background: #88e62b
+}
+.bgYellow{
+  background: #fbf4da
+}
+.bgPink{
+  background: #ffc0d8
+}
+.bgDrakYellow{
+  background: #ffec67
+}
+.yellowish{
+   background: #fda65a
+}
+.colorPurple{
+  color: #5a224f;
+  font-weight: bold
+}
+.colorBrown{
+  color: #8b5b0b;
+    font-weight: bold
 }

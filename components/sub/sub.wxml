@@ -1,0 +1,3 @@
+<text>I am 子组件</text>
+<view>{{num}}</view>
+<view>{{_index}}</view>

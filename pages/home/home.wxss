@@ -11,9 +11,10 @@
 .section {
   height: 70rpx;
   padding: 0 20rpx;
-  background: #fff;
-  border-radius: 4px;
+  border-radius: 20rpx;
   line-height: 70rpx;
+  color: #fff;
+  font-weight: bold
 }
 
 .gruop {
@@ -47,8 +48,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px dashed #d8d8d8;
-  border-radius: 4rpx;
+  border: 4px dashed #fda65a;
+  border-radius:50rpx;
   font-size: 40rpx;
   overflow: hidden;
 }
@@ -61,22 +62,10 @@
 
 .feed text {
   margin-bottom: 15rpx;
-  padding: 6rpx 0;
+  padding: 5rpx 0;
   text-align: center;
   border-radius: 15rpx;
   color: #fff;
-}
-
-.feed text:first-child {
-  background: rgb(9, 187, 7);
-}
-
-.feed text:nth-child(2) {
-  background: rgb(16, 174, 255);
-}
-
-.feed text:last-child {
-  background: rgb(247, 98, 96);
 }
 
 .animation {

@@ -1,0 +1,5 @@
+<import src="../../components/head.wxml" />
+
+<view wx:for="{{list}}" wx:key="index">{{index+1}},{{item}}</view>
+<!-- <template is="head" data="{{title: title}}" />
+<sub-cmp num="{{num}}" /> -->

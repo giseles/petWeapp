@@ -1,3 +1,6 @@
 {
+  "navigationBarBackgroundColor": "#393836",
+  "navigationBarTitleText": "宠物天气",
+  "navigationBarTextStyle": "white",
   "usingComponents": {}
 }

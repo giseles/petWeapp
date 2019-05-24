@@ -1,10 +1,10 @@
 <!--pages/home/home.wxml-->
-<view class="pageCon" wx:if="{{myPet.length}}">
-  <text class="showItem">当前您拥有的宠物：{{myPet}}</text>
+<view class="pageCon bgYellow" wx:if="{{myPet.length}}">
+  <text class="showItem bgPink colorPurple">当前您拥有的宠物：{{myPet}}</text>
 
   <view class="showItemBox">
-    <view>{{activePet}}龄{{activeInfo.age}}岁</view>
-    <view class="section">
+    <view class='colorBrown'>{{activePet}}龄{{activeInfo.age}}岁</view>
+    <view class="section yellowish">
       <picker bindchange="bindPickerChange" value="{{index}}" range="{{myPet}}">
         <view class="picker">
           选择宠物：{{activePet}}
@@ -13,35 +13,27 @@
     </view>
   </view>
 
-  <view class="gruop">
-    <view class="text-gruop">心情</view>
+  <!-- 心情健康进度条 -->
+  <view wx:for="{{state}}" wx:key="index" class='gruop'>
+    <view class="text-gruop colorPurple">{{item.cn}}</view>
     <view class="progress-gruop">
-      <progress percent="{{activeInfo.mood}}" color="#10AEFF"/>
+      <progress percent="{{activeInfo[item.en]}}" color="#ffc0d8" />
     </view>
-    <icon wx:if="{{activeInfo.mood>66}}" type="info_circle" color="primary" />
-    <icon wx:if="{{activeInfo.mood>33 && activeInfo.mood<=66}}" type="info_circle" color="#C9C9C9" />
-    <icon wx:if="{{activeInfo.mood<=33}}" type="info_circle" color="red" />
-  </view>
-  <view class="gruop">
-    <view class="text-gruop">健康</view>
-    <view class="progress-gruop">
-      <progress percent="{{activeInfo.health}}" color="#10AEFF"/>
-    </view>
-    <icon wx:if="{{activeInfo.health>66}}" type="info_circle" color="primary" />
-    <icon wx:if="{{activeInfo.health>33 && activeInfo.health<=66}}" type="info_circle" color="#C9C9C9" />
-    <icon wx:if="{{activeInfo.health<=33}}" type="info_circle" color="red" />
+    <icon wx:if="{{activeInfo[item.en]>66}}" type="info_circle" color="faadea" />
+    <icon wx:if="{{activeInfo[item.en]>33 && activeInfo[item.en]<=66}}" type="info_circle" color="#6cbef9" />
+    <icon wx:if="{{activeInfo[item.en]<=33}}" type="info_circle" color="#f6775f" />
   </view>
 
   <view class='pet-group'>
-    <view class='showPet'  wx:if="{{petSize}}" style='font-size:{{petSize}}'>
+    <view class='showPet bgDrakYellow' wx:if="{{petSize}}" style='font-size:{{petSize}}'>
       <!-- <text animation="{{animationData}}"> {{activePet}} -->
-      <text class="{{animationClass}}"> {{activePet}}
+      <text class="{{animationClass}} colorBrown"> {{activePet}}
      </text>
     </view>
     <view class='feed'>
-      <text bindtap="handleFeed" data-feed="water">喂水</text>
-      <text bindtap="handleFeed" data-feed="food">投食</text>
-      <text bindtap="handleFeed" data-feed="play">玩耍</text>
+      <text class='bgPurple' bindtap="handleFeed" data-feed="water">喂水</text>
+      <text class='bgGreen' bindtap="handleFeed" data-feed="food">投食</text>
+      <text class='bgBlue' bindtap="handleFeed" data-feed="play">玩耍</text>
     </view>
   </view>
 

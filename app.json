@@ -6,7 +6,8 @@
     "pages/my/my",
     "pages/weather/weather",
     "pages/petShop/petShop",
-    "pages/petSales/petSales"
+    "pages/petSales/petSales",
+    "pages/demo/demo"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -37,12 +38,16 @@
         "selectedIconPath": "/images/tabBarActive3.png",
         "iconPath": "/images/tabBar3.png",
         "text": "我的"
+      },
+      {
+        "pagePath": "pages/demo/demo",
+        "text": "Demo"
       }
     ]
   },
-  "permission":{
-    "scope.userLocation":{
-      "desc":"获取地址查询天气预报"
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取地址查询天气预报"
     }
   }
 }

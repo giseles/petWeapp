@@ -12,7 +12,11 @@ Page({
     activePet: wx.getStorageSync('myPet')[0] || null,
     activeInfo: wx.getStorageSync('myPetInfo')[0] || null,
     petSize: wx.getStorageSync('myPetInfo')[0] ? wx.getStorageSync('myPetInfo')[0].petSize : '40rpx',
-    animationClass: null
+    animationClass: null,
+    state:[
+      { en: "mood", cn:"心情"},
+      { en:"health",cn:"健康"}
+    ]
   },
 
   /**
@@ -24,14 +28,38 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // 更新年龄心情健康
+    let myPetInfo = this.data.myPetInfo;
+    let now = new Date().getTime();
+    for (let index in myPetInfo) {
+      let current = myPetInfo[index];
+      let age = Math.floor((now - current.birth) / (24 * 60 * 60 * 1000) + 1);
+      let handleDay = Math.floor((now - current.last) / (24 * 60 * 60 * 1000) + 1);
+      if (current.age !== age) {
+        current.age = age;
+      }
+      if (handleDay > 1) {
+        current.health = current.health + randomNum(-10, -1);
+        current.mood = current.mood + randomNum(-10, -1);
+        current.last = now;
+      }
+      myPetInfo.splice(index, 1, current);
+    }
+    wx.setStorageSync('myPetInfo', myPetInfo);
+    this.setData({
+      myPetInfo: myPetInfo || null,
+      activeInfo: myPetInfo[0] || null,
+      petSize: myPetInfo[0] ? myPetInfo[0].petSize : '40rpx',
+    });
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData();
+    let myPet = wx.getStorageSync('myPet');
+    let index = myPet[this.data.indexPicker] ? this.data.indexPicker:0;
+    this.getData(index);
   },
 
   /**
@@ -73,7 +101,7 @@ Page({
       url: '/pages/petShop/petShop'
     })
   },
-  // 刷新数据
+  // 刷新数据并选择当前宠物
   getData: function (index = 0) {
     let myPet = wx.getStorageSync('myPet');
     let myPetInfo = wx.getStorageSync('myPetInfo');
@@ -89,27 +117,7 @@ Page({
   },
   // 选择宠物
   bindPickerChange(e) {
-    let myPetInfo = JSON.parse(JSON.stringify(this.data.myPetInfo));
-    let indexPicker = e.detail.value;
-    let activePet = this.data.myPet[indexPicker];
-    let activeInfo = myPetInfo[indexPicker];
-
-
-    // 判断年龄是否更新
-    let now = new Date().getTime();
-    let age = Math.floor((now - activeInfo.birth) / (24 * 60 * 1000) + 1);
-    let handleDay = Math.floor((now - activeInfo.last) / (24 * 60 * 1000) + 1);
-    if (activeInfo.age !== age) {
-      activeInfo.age = age;
-    }
-    if (handleDay > 1) {
-      activeInfo.health = activeInfo.mood + randomNum(-5, 2);
-      activeInfo.mood = activeInfo.mood + randomNum(-5, 2);
-      activeInfo.last = now;
-    }
-    myPetInfo.splice(indexPicker, 1, activeInfo);
-    wx.setStorageSync('myPetInfo', myPetInfo);
-    this.getData(indexPicker);
+    this.getData(e.detail.value);
   },
 
   // 喂养宠物
@@ -145,7 +153,7 @@ Page({
     };
     activeInfo.last = now;
     if (indexPicker === undefined) {
-      console.log('error');
+      this.getData();
       return;
     };
     myPetInfo.splice(indexPicker, 1, activeInfo);
